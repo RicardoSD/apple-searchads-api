@@ -32,7 +32,7 @@ def set_env(**environ):
 
 
 def api_call(endpoint, headers={}, json_data={}, method=requests.get,
-             api_version='v1', limit=1000, offset=0, org_id=None,
+             api_version='v3', limit=1000, offset=0, org_id=None,
              verbose=False):
     endpoint = "{}/{}".format(api_version, endpoint)
     # print("Endpoint:", endpoint)
@@ -89,7 +89,7 @@ def api_call(endpoint, headers={}, json_data={}, method=requests.get,
     return req.json()
 
 
-def api_get(endpoint, api_version='v1', limit=1000, offset=0, org_id=None,
+def api_get(endpoint, api_version='v3', limit=1000, offset=0, org_id=None,
             verbose=False):
     return api_call(
         endpoint="{endpoint}?limit={limit}&offset={offset}".format(
@@ -102,7 +102,7 @@ def api_get(endpoint, api_version='v1', limit=1000, offset=0, org_id=None,
     )
 
 
-def api_put(endpoint, data, api_version='v1', org_id=None, verbose=False):
+def api_put(endpoint, data, api_version='v3', org_id=None, verbose=False):
     return api_call(
         endpoint,
         json_data=data,
@@ -113,7 +113,7 @@ def api_put(endpoint, data, api_version='v1', org_id=None, verbose=False):
     )
 
 
-def api_post(endpoint, data, api_version='v1', org_id=None, verbose=False):
+def api_post(endpoint, data, api_version='v3', org_id=None, verbose=False):
     return api_call(
         endpoint,
         json_data=data,
